@@ -8,20 +8,20 @@ Fill out truth tables for the following expressions:
 ```
 A     B     result
 -------------------
-0     0       ?
-0     1       ?
-1     0       ?
-1     1       ?
+0     0       true
+0     1       false
+1     0       true
+1     1       true
 ```
 
 2. `(¬A ∨ B) ∧ ¬(A ∧ ¬B)`   (alternate: `(!A || B) && !(A && !B)`)
 ```
 A     B     result
 -------------------
-0     0       ?
-0     1       ?
-1     0       ?
-1     1       ?
+0     0       false
+0     1       true
+1     0       false
+1     1       true
 ```
 
 3. `¬(A ∨ B) ∨ ( (A ∨ C) ∧ ¬(B ∨ ¬C) )`   (alternate: `!(A || B) || ( (A || C) && !(B || !C) )`)
@@ -29,14 +29,14 @@ A     B     result
 ```
 A     B     C     result
 -------------------------
-0     0     0       ?
-0     0     1       ?
-0     1     0       ?
-0     1     1       ?
-1     0     0       ?
-1     0     1       ?
-1     1     0       ?
-1     1     1       ?
+0     0     0       true
+0     0     1       false
+0     1     0       false
+0     1     1       false
+1     0     0       true
+1     0     1       false
+1     1     0       false
+1     1     1       false
 ```
 
 ## STRETCH GOAL
