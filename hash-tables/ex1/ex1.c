@@ -6,10 +6,24 @@
 Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 {
   HashTable *ht = create_hash_table(16);
-
-  /* YOUR CODE HERE */
-
-  return NULL;
+  for(int i = 0; i < length; i++){
+    unsigned int index = hash(i, ht->capacity);
+    hash_table_insert(ht, weights[i], index);
+  }
+  int matched = 0;
+  int key1;
+  int key2;
+  while(matched == 0){
+    for(int j = 0; j < length; j++){
+      if(hash_table_retrieve(ht, limit - weights[j]) != -1){
+        key1 = hash_table_retrieve(ht, weights[j]);
+        key2 = hash_table_retrieve(ht, limit - weights[j]);
+        matched = 1;
+      }
+    }
+    matched = -1;
+  }
+  
 }
 
 void print_answer(Answer *answer)
