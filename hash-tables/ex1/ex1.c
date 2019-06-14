@@ -17,6 +17,7 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
       hash_table_insert(ht, weights[i], i);    
     }
   }
+  destroy_hash_table(ht);
   if(key1 == -1 && key2 == -1){
     return NULL;
   }
