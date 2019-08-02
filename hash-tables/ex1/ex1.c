@@ -6,10 +6,31 @@
 Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 {
   HashTable *ht = create_hash_table(16);
-
-  /* YOUR CODE HERE */
-
-  return NULL;
+  int key1 = -1;
+  int key2 = -1;
+  for(int i = 0; i < length; i++){
+    if(hash_table_retrieve(ht, limit - weights[i]) != -1){
+      key1 = i;
+      key2 = hash_table_retrieve(ht, limit - weights[i]);
+    }
+    else {
+      hash_table_insert(ht, weights[i], i);    
+    }
+  }
+  destroy_hash_table(ht);
+  if(key1 == -1 && key2 == -1){
+    return NULL;
+  }
+  Answer *ans = malloc(sizeof(Answer));
+  if(key1 > key2){
+    ans->index_1 = key1;
+    ans->index_2 = key2;
+  }
+  else{
+    ans->index_1 = key2;
+    ans->index_2 = key1;
+  }
+  return ans;
 }
 
 void print_answer(Answer *answer)
